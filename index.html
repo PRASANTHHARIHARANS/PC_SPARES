@@ -1,0 +1,180 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<title>PC Spares Hub</title>
+
+<style>
+body {
+    font-family: Arial;
+    margin: 0;
+    background: #b96e6e;
+}
+
+header {
+    background: #111;
+    color: white;
+    text-align: center;
+    padding: 20px;
+}
+
+header p {
+    color: #ccc;
+    font-style: italic;
+}
+
+nav {
+    background: #333;
+    text-align: center;
+    padding: 10px;
+}
+
+nav a {
+    color: white;
+    margin: 0 15px;
+    text-decoration: none;
+}
+
+.container {
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    gap: 15px;
+    padding: 20px;
+}
+
+.card {
+    background: white;
+    padding: 15px;
+    border-radius: 10px;
+    text-align: center;
+}
+
+.card img {
+    width: 25%;
+    height: 50px;
+    object-fit: contain;
+}
+
+.price {
+    color: green;
+    font-weight: bold;
+}
+
+button {
+    background: #00c3ff;
+    border: none;
+    padding: 10px;
+    color: white;
+    cursor: pointer;
+    margin-top: 10px;
+}
+
+button:hover {
+    background: #009acd;
+}
+
+#orderSection {
+    background: white;
+    margin: 20px;
+    padding: 20px;
+    border-radius: 10px;
+}
+
+footer {
+    background: #111;
+    color: white;
+    text-align: center;
+    padding: 15px;
+}
+</style>
+</head>
+
+<body>
+
+<header>
+    <h1>PC Spares Hub</h1>
+    <p>"Tailoring customer requirements ready-made products won't fulfill"</p>
+  </header>
+
+<nav>
+    <a href="#">Processors</a>
+    <a href="#">Memory</a>
+    <a href="#">Monitors</a>
+    <a href="#">Keyboards</a>
+</nav>
+
+<div class="container">
+
+    <div class="card">
+        <img src="https://easypc.com.ph/cdn/shop/products/IntelCoreI5-12400AlderLake2.5GHzIntelUHDGraphics730_MaxTurboFrequency4.40GHzSocket1700DesktopProcessor-a_150x.jpg?v=1644285398">
+        <h3>Intel i5</h3>
+        <p>6 Core Processor</p>
+        <p class="price">₹18000</p>
+        <button onclick="addToCart('Intel i5',18000)">Order</button>
+    </div>
+
+    <div class="card">
+        <img src="https://www.vedantcomputers.com/image/cache/catalog/assets/product/corsair/ram/cmw16gx4m2z3200c16/cmw16gx4m2z3200c16-1-80x80.jpg">
+        <h3>16GB RAM</h3>
+        <p>DDR4 3200MHz</p>
+        <p class="price">₹2500</p>
+        <button onclick="addToCart('8GB RAM',2500)">Order</button>
+    </div>
+
+    <div class="card">
+        <img src="https://image-cdn.ubuy.com/evga-geforce-rtx-3060-xc-gaming-12g/250_100_250/6508704e548e4c0dd0090cd4.jpg alt="Graphics Cards">
+        <h3>Graphics Card</h3>
+        <p>NVIDIA RTX 3060</p>
+      <p>12GB GDDR6 | Ray Tracing</p>
+       <p class="price">₹30000</p>
+        <button onclick="addToCart('Graphics Card',30000)">Order</button>
+    </div>
+
+    <div class="card">
+        <img src="https://store.tvselectronics.in/cdn/shop/files/1_8039c881-176f-4833-9d69-c3e3a2118b01_100x.jpg?v=1706874298">
+        <h3>Keyboard</h3>
+        <p>Mechanical RGB</p>
+        <p class="price">₹2000</p>
+        <button onclick="addToCart('Keyboard',2000)">Order</button>
+    </div>
+
+</div>
+
+<!-- Order Section -->
+<div id="orderSection">
+    <h2>🛒 Your Order</h2>
+    <ul id="orderList"></ul>
+    <h3>Total: ₹<span id="total">0</span></h3>
+</div>
+
+<!-- Address Section -->
+<div id="orderSection">
+    <h2>📍 Store Address</h2>
+    <p>PC Spares Hub</p>
+    <p>123 Tech Street</p>
+    <p>Coimbatore, Tamil Nadu</p>
+    <p>Phone: +91 98765 43210</p>
+</div>
+
+<footer>
+    © 2026 PC Spares Hub
+</footer>
+
+<script>
+let total = 0;
+
+function addToCart(name, price) {
+    let list = document.getElementById("orderList");
+
+    let item = document.createElement("li");
+    item.textContent = name + " - ₹" + price;
+
+    list.appendChild(item);
+
+    total += price;
+    document.getElementById("total").textContent = total;
+}
+</script>
+
+</body>
+</html>
